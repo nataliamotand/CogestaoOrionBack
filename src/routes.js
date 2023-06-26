@@ -5,4 +5,6 @@ const app = require('./App');
 
 const rotas = Router();
 
+rotas.post('/login', UsuarioController.login);
+
 module.exports = rotas;
