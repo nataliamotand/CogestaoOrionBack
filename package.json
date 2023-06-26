@@ -1,5 +1,5 @@
 {
-  "name": "miniprojeto-mongodb",
+  "name": "main",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "^5.6.0",
-    "mongoose": "^7.1.0",
+    "mongoose": "^7.3.1",
     "nodemon": "^2.0.22"
   }
 }
