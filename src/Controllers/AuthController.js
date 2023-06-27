@@ -23,7 +23,7 @@ class AuthController {
 
     console.log(token);
     console.log(usuario);
-    res.status(200).json({ message: "OK" });
+    res.status(200).json({ message: "OK", token });
   }
 }
 

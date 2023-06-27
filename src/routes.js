@@ -9,4 +9,8 @@ const rotas = Router();
 //auth
 rotas.post("/login", AuthController.login);
 
+//lembrete
+rotas.post("/lembrete", LembreteController.createLembrete);
+rotas.get("/lembrete", LembreteController.getLembretesPorIdUsuario);
+rotas.delete("/lembrete/:id", LembreteController.deleteLembrete);
 module.exports = rotas;
