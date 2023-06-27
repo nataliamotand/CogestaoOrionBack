@@ -2,7 +2,7 @@ const UsuarioModel = require("../Models/UsuarioModel");
 
 class UsuarioController {
     
-    async create(req, res){
+    async createUsuario(req, res){
         try{ 
             const usuario = await UsuarioModel.create(req.body); 
             
@@ -14,21 +14,21 @@ class UsuarioController {
         } catch(error){
             res
                 .status(500)
-                .json({ message: "Deu ruim aqui!", error: error.message });
+                .json({ message: "Não foi possível criar novo usuário.", error: error.message });
         } 
     }
 
-    async read(req, res){
+    async getUsuario(req, res){
         try{
             const usuarios = await UsuarioModel.find();
 
             return res.status(200).json(usuarios);
         } catch(error){
-            res.status(500).json({ message: 'Deu ruim aqui!', error: error.message });
+            res.status(500).json({ message: 'Não foi possível mostrar os dados do usuário.', error: error.message });
         }
     }
 
-    async update(req, res){
+    async updateUsuario(req, res){
         try{
             const { id } = req.params; //precisa do id do usuario como parâmetro pra atualizar os dados
             const usuarioEncontrado = await UsuarioModel.findById(id);
@@ -40,17 +40,17 @@ class UsuarioController {
 
             return res.status(200).json(usuario);
         } catch(error) {
-            res.status(500).json({ message: 'Deu ruim aqui!', error: error.message });
+            res.status(500).json({ message: 'Não foi possível atualizar os dados do usuário.', error: error.message });
         }
     }
 
-    async delete(req, res){
+    async deleteUsuario(req, res){
         try{
             const { id } = req.params;
             const usuarioEncontrado = await UsuarioModel.findById(id);
     
             if(!usuarioEncontrado)
-                return res.status(404).json({ message: 'Usuário não encontrado' });
+                return res.status(404).json({ message: 'Usuário não encontrado.' });
             
             await usuarioEncontrado.deleteOne();    
     

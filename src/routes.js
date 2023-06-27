@@ -17,7 +17,7 @@ rotas.get('/lembretes', LembreteController.get);
 rotas.put('/lembretes/:id', LembreteController.put);
 rotas.delete('/lembretes/:id', LembreteController.delete);
 
-//AUTH
+//LOGIN
 rotas.post('/login', AuthController.post);
 
 module.exports = rotas;
