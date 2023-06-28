@@ -13,7 +13,7 @@ function verificarJwt(req, res, next) {
     if(!token)
         return res.status(403).json({ message: "Token não encontrado "});
     
-    jwt.verify(token, process.env.JWT_SEGREDO, (err, dados) => { //pegar o segredo e colocar no .env
+    jwt.verify(token, process.env.JWT_SEGREDO, (err, dados) => { 
         if(err)
             return res.status(403).json({ message: "Token inválido" });
             req.usuarioId = dados.usuario._id;
