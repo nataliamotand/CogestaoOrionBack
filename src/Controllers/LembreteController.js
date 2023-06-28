@@ -26,7 +26,7 @@ class LembreteController {
         message: `O usuário com id ${id} não possui lembretes ou não existe`,
       });
 
-    res.status(200).json({ message: "OK", lembretes });
+    res.status(200).json(lembretes);
   }
 
   async deleteLembrete(req, res) {

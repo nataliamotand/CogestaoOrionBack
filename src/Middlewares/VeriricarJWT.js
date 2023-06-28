@@ -9,10 +9,15 @@ function VerificarJWT(req, res, next) {
 
   const [bearer, token] = authHeader.split(" ");
 
-  if (!token) return res.status(403).json({ message: "O token é inválido" });
+  if (!token)
+    return res
+      .status(403)
+      .json({ message: "O token é inválido ou está vazio" });
 
   jwt.verify(token, process.env.JWT_SECRET, (erro, usuario) => {
     if (erro) return res.status(403).json({ message: "O token é inválido" });
     next();
   });
 }
+
+module.exports = VerificarJWT;
