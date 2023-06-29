@@ -12,15 +12,15 @@ class LembreteController {
         return res.status(200).json(lembretes);
     }
     async readById(req, res) {
-        const { id } = req.params;
+        const id = req.body.id_usuario;
 
-        const lembrete = await LembreteModel.findById(id);
+        const lembrete = await LembreteModel.find({id_usuario: id});
 
         return res.status(200).json(lembrete);
     }
 
     async delete (req,res){
-        const { id } = req.params
+        const { id} = req.params;
         await LembreteModel.findByIdAndDelete(id);
 
         return res.status(200).json({ "mensagem" : "Lembrete deletado com sucesso!"});
